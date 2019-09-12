@@ -16,7 +16,11 @@ KREWES = {
 
 }
 
+    #returns random team name in KREWES. random.choice takes in a sequence,
+    #which can be a list so we convert dict to list
+
 def randPerson(dict):
+
     team = random.choice(list(dict))
     name = random.choice(dict[team])
     print(name)
