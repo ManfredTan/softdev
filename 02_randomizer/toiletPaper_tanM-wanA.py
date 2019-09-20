@@ -21,7 +21,7 @@ KREWES = {
 
 def randPerson(dict):
 
-    team = random.choice(list(dict))
+    team = random.choice(list(dict.keys()))
     name = random.choice(dict[team])
     print(name)
 
