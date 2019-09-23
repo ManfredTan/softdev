@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>{{titulo}}</title>
+  </head>
+  <body>
+    <center>
+      <h2>Occupations in the United States</h2>
+      <h4>Roster: Jeff Lin & Manfred Tan (Team Gold)</h4>
+      Random Occupation: {{ job }} ({{percent}} %)<br><br>
+      <table>
+        <tr>
+          <th>Occupation</th>
+          <th>Percentage</th>
+        </tr>
+        {% for index in lengthNum %}
+          <tr>
+            <td>{{col1[index]}}</td>
+            <td>{{col2[index]}}</td>
+          </tr>
+        {% endfor %}
+      </table>
+      <br>
+    </center>
+  </body>
+</html>
