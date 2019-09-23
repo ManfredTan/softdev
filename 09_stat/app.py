@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import csv
 import random
 
@@ -19,12 +20,19 @@ def sol():
         tempsum += dictionary[key]
         if rand <= tempsum:
             return key
+=======
+from flask import Flask, render_template
+app = Flask(__name__)
+
+coll = [0,1,1,2,3,5,8]
+>>>>>>> 18f5f1aac061fbeb8ba9316231e2cc6f63d47e16
 
 @app.route("/")
 def hello_world():
     print("Main page loaded") # Prints out something on load/reload in console
     return "New test page!"
 
+<<<<<<< HEAD
 @app.route("/occupyflaskst")
 def newpage():
     name = sol()
@@ -35,6 +43,13 @@ def newpage():
     col1 = keys,
     col2 = list(dictionary.values()),
     lengthnum = range(len(keys))
+=======
+@app.route("/my_foist_template")
+def newpage():
+    return render_template('site.html',
+    foo = "foooo",
+    collection= coll
+>>>>>>> 18f5f1aac061fbeb8ba9316231e2cc6f63d47e16
     )
 
 if __name__ == "__main__":
