@@ -31,8 +31,6 @@ def makeDict():
     # range of numbers with the length being equal to the percentage. If the
     # random number falls within this range, the job is chosen.
     tempsum = 0
-    print(dictionary)
-    print(dictionary.values())
     # checks to see if the random number is within the job percentage range.
     for key in dictionary.keys():
         tempsum += dictionary[key]
@@ -41,23 +39,30 @@ def makeDict():
 
 @app.route("/")
 def hello_world():
-    print("Main page loaded") # Prints out something on load/reload in console
+    # prints out something on load/reload in console
+    print("Main page loaded")
     return "New test page!"
 
 @app.route("/occupyflaskst")
 def newpage():
+    # declaration calls method to build dictionary and choose random occupation
     occupation = makeDict()
+    # obtains percentage of occupation
     percentage = dictionary.get(occupation)
+    # creates list of dictionary keys
     keys = list( dictionary.keys() )
+    # passes variable names with stored values to Jinja template
     return render_template('site.html',
     titulo = "Occupations",
     job = occupation,
     percent = percentage,
     col1 = keys,
     col2 = list( dictionary.values() ),
+    # length of list for loop to build table
     lengthNum = range( len(keys) )
     )
 
 if __name__ == "__main__":
-    app.debug = True # Automatically updates project with save file
+    # Automatically updates project with save file
+    app.debug = True
     app.run()
