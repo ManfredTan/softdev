@@ -24,12 +24,12 @@ def authenticate():
     #print(request.form) --- ImmutableMultiDict([])
     #print(cgi.FieldStorage ) --- error
 
+    # assigning variable names to what the user inputs for each text box
     name = request.args["name"]
-
     origin = request.args["planet"]
-
     topping = request.args["pizza"]
 
+    # running the new HTML page, "/auth"
     return render_template("auth.html",
     name = name,
     origin = origin,
