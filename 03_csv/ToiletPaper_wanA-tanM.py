@@ -18,7 +18,7 @@ def createDict(csvFile):
         csvRead = csv.reader(oldcsv) # standard delimiter is ","
         next(csvRead) # skips first line
         for row in csvRead:
-            newDict[(row[0])] = float(row[1]) # adds data into dictionary
+            newDict[ row[0] ] = float( row[1] ) # adds data into dictionary
     del newDict["Total"] # remove total percentage (final line)
     return newDict
 
