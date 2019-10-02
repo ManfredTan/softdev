@@ -1,7 +1,7 @@
 #Team Hippo- Sophie Nichol, Manfred Tan, Calvin Chu
 #SoftDev1 pd9
-#K12: Echo Echo Echo
-#2019-09-26
+#K11 - Forms
+#2019-09-25
 
 from flask import Flask, render_template, request
 app = Flask(__name__)
@@ -10,33 +10,23 @@ app = Flask(__name__)
 @app.route("/")
 def hello_world():
     print("Main page loaded") # Prints out something on load/reload in console
-    return render_template('landing.html')
+    return "New test page!"
 
+@app.route("/form")
+def makeForm():
+    return render_template('app.html',
+    )
 
 @app.route("/auth")
 def authenticate():
-    # TESTING:
-    #print(app) --- <Flask 'app'>
-    #print(request) --- <Request 'http://127.0.0.1:5000/auth?firstName=Manfred&lastName=Tan&band=imagine+dragons&Submit=Submit' [GET]>
-    #print(request.headers) --- user info
-    #print(request.method) --- GET
-    #print(request.args["firstName"]) --- Manfred
-    #print(request.form) --- ImmutableMultiDict([])
-    #print(cgi.FieldStorage ) --- error
-
-    # assigning variable names to what the user inputs for each text box
-    name = request.args["name"]
-    origin = request.args["planet"]
-    topping = request.args["pizza"]
-
-    # running the new HTML page, "/auth"
-    return render_template("auth.html",
-    name = name,
-    origin = origin,
-    topping = topping,
-    method = request.method,
-
-    )
+    #print(app)
+    #print(request)
+    #print(request.headers)
+    #print(request.method)
+    #print( request.args["data"] )
+    #print(request.form)
+    #print(cgi.FieldStorage )
+    return "helo"
 
 if __name__ == "__main__":
     app.debug = True # Automatically updates project with save file
