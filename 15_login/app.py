@@ -10,6 +10,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def checkcookies():
+    print(request.cookies.get('username'))
     if(request.cookies.get('username') == None):
         print('no cookies found: going to login page')
         return render_template(
@@ -22,7 +23,7 @@ def checkcookies():
 
 @app.route("/login")
 def login():
-    return "recieved login information"
+    return "received login information"
 
 @app.route("/welcome")
 def welcome():
