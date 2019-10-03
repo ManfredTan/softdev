@@ -21,8 +21,16 @@ def checkcookies():
     return url_for("welcome")
 
 
-@app.route("/login")
+@app.route("/login", methods=["POST"])
 def login():
+    #print(request.args) -> returns query string (GET method), which is empty because we use POST method
+    #print(request.args["username"])
+    #print(request.args["password"])
+
+    print(request.form) #returns values in forms with POST method
+    print(request.form["username"]) #prints value in username
+    print(request.form["password"]) #prints value in password
+
     return "received login information"
 
 @app.route("/welcome")
