@@ -31,6 +31,11 @@ def login():
     print(request.form["username"]) #prints value in username
     print(request.form["password"]) #prints value in password
 
+    if True:
+        return redirect(url_for("welcome")) # redirects to welcome page
+    else:
+        return "error"
+
     return "received login information"
 
 @app.route("/welcome")
