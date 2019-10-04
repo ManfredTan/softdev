@@ -10,18 +10,22 @@ app = Flask(__name__)
 # username: hello
 # password: world
 app.secret_key = os.urandom(32)
+
+
 @app.route("/")
-def checkcookies():
-    print(request.cookies.get('username'))
-    if(session['user'] == "hello" && session['pass'] == "world"):
-        #print('no cookies found: going to login page')
-        return redirect(url_for("welcome"))
-    else:
-        print('Cookies Found')
-        return render_template(
-            'login.html',
-            message = "Hello user! Please enter your username and password:"
-        )
+def checkCookies():
+    if (session): #checks for existence of session
+        if (session['user'] == "hello"):
+            if (session['pass'] == "world"):
+                print("Cookies found! Logging in.")
+                return redirect(url_for("welcome")) # redirects to welcome page
+
+    print('Cookies Not Found')
+    return render_template(
+        'login.html',
+        message = "Hello user! Please enter your username and password:"
+    )
+
 
 
 
@@ -37,9 +41,13 @@ def login():
     #print(request.form["password"]) #prints value in password
     session['user'] = request.form["username"]
     session['pass'] = request.form["password"]
-    #print(request.cookies.get('user'))
-    if (session['user'] == "hello"):
-        if (session['pass'] == "world"):
+
+    #print(request.cookies) - returns session
+
+
+
+    if (request.form["username"] == "hello"):
+        if (request.form["password"] == "world"):
             return redirect(url_for("welcome")) # redirects to welcome page
         else:
             return render_template(
