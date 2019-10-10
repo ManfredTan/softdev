@@ -38,6 +38,14 @@ with open('courses.csv', newline='') as csvfile:
         command = "INSERT INTO courses VALUES(" + row['id'] + ", '" + row['code'] + "', " + row['mark'] + ");"
         c.execute(command)
 
+q = "SELECT name, students.id, mark FROM students, courses WHERE students.id = courses.id;"
+foo = c.execute( q )
+
+print(foo)
+
+for bar in foo:
+    print(bar)
+
 # saving and exiting
 db.commit()
 db.close()
