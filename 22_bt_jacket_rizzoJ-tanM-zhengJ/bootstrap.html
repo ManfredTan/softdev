@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Bootstrap!</title>
+  </head>
+  <body>
+<div style ="background:white" class="jumbotron jumbotron-fluid">
+ <div class="container">
+<h1 style ="color:black; text-align: center" class="display-3">Bootstrap!</h1>
+ </div>
+</div>
+  <div style ="background:white" class="jumbotron text-center">
+ <div class="container">
+<h2  class="display-10">Let's look at some headings</h2>
+    <h2 style= "text-align: center">Bootstrap offers a wide variety of headings one may want to use: </h2>
+    <h1 style= "text-align: center" class="display-1">Display 1</h1>
+    <h1 style= "text-align: center" class="display-2">Display 2</h1>
+    <h1 style= "text-align: center" class="display-3">Display 3</h1>
+    <h1 style= "text-align: center" class="display-4">Display 4</h1>
+ </div>
+    <p class="lead">
+  Displays are really cool and useful, and you can use them by typing class="display-num" right into your
+  html tag. But headings are useluess without paragraphs like these to explain what's going on. If you want
+  to make your paragraphs stands out, you can use the lead class.
+</p>
+<p> Otherwise, you get lame paragraphs like these</p>
+</div>
+  <div style= "text-align: center">
+    <p>You can use the mark tag to <mark>highlight</mark> text.</p>
+<p><del>This line of text is meant to be treated as deleted text.</del></p>
+<p><s>This line of text is meant to be treated as no longer accurate.</s></p>
+<p><ins>This line of text is meant to be treated as an addition to the document.</ins></p>
+<p><u>This line of text will render as underlined</u></p>
+<p><small>This line of text is meant to be treated as fine print.</small></p>
+<p><strong>This line rendered as bold text.</strong></p>
+<p><em>This line rendered as italicized text.</em></p>
+  </div>
+
+
+  <form class="bd-example">
+    <fieldset>
+      <legend>In addition, bootstrap also modifies the existing forms</legend>
+
+      <p>
+        <label for="input">Example input</label>
+        <input type="text" id="input" placeholder="Example input">
+      </p>
+
+      <p>
+        <label for="select">Example select</label>
+        <select id="select">
+          <option value="">Choose...</option>
+          <optgroup label="Option group 1">
+            <option value="">Option 1</option>
+            <option value="">Option 2</option>
+            <option value="">Option 3</option>
+          </optgroup>
+          <optgroup label="Option group 2">
+            <option value="">Option 4</option>
+            <option value="">Option 5</option>
+            <option value="">Option 6</option>
+          </optgroup>
+        </select>
+      </p>
+
+      <p>
+        <label>
+          <input type="checkbox" value="">
+          Check this checkbox
+        </label>
+      </p>
+
+      <p>
+        <label>
+          <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
+          Option one is this and that
+        </label>
+        <label>
+          <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+          Option two is something else that's also super long to demonstrate the wrapping of these fancy form controls.
+        </label>
+        <label>
+          <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" disabled="">
+          Option three is disabled
+        </label>
+      </p>
+
+      <p>
+        <label for="textarea">Example textarea</label>
+        <textarea id="textarea" rows="3"></textarea>
+      </p>
+
+      <p>
+        <label for="date">Example date</label>
+        <input type="date" id="date">
+      </p>
+
+      <p>
+        <label for="time">Example time</label>
+        <input type="time" id="time">
+      </p>
+
+      <p>
+        <label for="output">Example output</label>
+        <output name="result" id="output">100</output>
+      </p>
+
+      <p>
+        <button type="submit">Button submit</button>
+        <input type="submit" value="Input submit button">
+        <input type="button" value="Input button">
+      </p>
+
+      <p>
+        <button type="submit" disabled="">Button submit</button>
+        <input type="submit" value="Input submit button" disabled="">
+        <input type="button" value="Input button" disabled="">
+      </p>
+    </fieldset>
+  </form>
+
+  <div class = "text-center">
+  <div class="spinner-border text-danger m-5"
+  style = "width: 10rem; height: 10rem;"
+  role="status">
+   <span class="sr-only">Loading...</span>
+  </div>
+  </div>
+
+<table class="table">
+  <thead>
+    <tr class="table-active">
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="table-primary">
+      <th scope="row">1</th>
+      <td>Jude</td>
+      <td>Rizzo</td>
+    </tr>
+    <tr class="table-success">
+      <th scope="row">2</th>
+      <td>Manfred</td>
+      <td>Tan</td>
+    </tr>
+    <tr class="table-danger">
+      <th scope="row">3</th>
+      <td>Jason</td>
+      <td>Zheng</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="bg-primary">
+      <th scope="row">1</th>
+      <td>Jude</td>
+      <td>Rizzo</td>
+    </tr>
+    <tr class="bg-success">
+      <th scope="row">2</th>
+      <td>Manfred</td>
+      <td>Tan</td>
+    </tr>
+    <tr class="bg-danger">
+      <th scope="row">3</th>
+      <td>Jason</td>
+      <td>Zheng</td>
+    </tr>
+  </tbody>
+</table>
+
+	<samp>This text is meant to be treated as sample output from a computer program.</samp>
+  </body>
+</html>
