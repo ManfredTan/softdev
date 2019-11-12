@@ -10,14 +10,18 @@ app = Flask(__name__) #create instance of class Flask
 
 @app.route("/")
 def home():
-    data = urlopen("https://api.nasa.gov/planetary/apod?api_key=AiLtoPDhFne6zBMXV5RI2yNqTHK3PKbm1HzOui0W")
+    link = urlopen("https://api.nasa.gov/planetary/apod?api_key=AiLtoPDhFne6zBMXV5RI2yNqTHK3PKbm1HzOui0W")
     #print(data.geturl())
-    response = data.read()
-    data2 = json.loads( response )
-    pic = data2['url']
-    explanation = data2['explanation']
+    response = link.read()
+    data = json.loads( response )
+    pic = data['url']
+    date = data['date']
+    explanation = data['explanation']
     print(response)
-    return(render_template("index.html", pic = pic))
+    return(render_template("index.html",
+    explanation = explanation,
+    date = date,
+    pic = pic))
 
 
 if __name__ == "__main__":
