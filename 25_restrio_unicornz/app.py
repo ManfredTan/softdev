@@ -4,7 +4,7 @@
 # 2019-11-13
 
 from flask import Flask, render_template
-from urllib.request import urlopen
+from urllib.request import urlopen, Request
 import json
 app = Flask(__name__) #create instance of class Flask
 
