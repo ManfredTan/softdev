@@ -4,15 +4,16 @@
         <h1> Trivia API </h1>
         <br>
         This API gives a random trivia question.
-        <br><br><br>
+        <br><br>
         {{question}}
         <br><br>
-        Correct Answer: {{correctAns}}
+        {{correctAns}}
         <br>
-        Wrong Answers:
         {% for answer in wrongAns %}
-            {{answer}}
+            {{answer}} <br>
         {% endfor %}
+        <br>
+        Correct Answer: {{correctAns}}
 
         <img src = {{pic}}>
 
@@ -20,11 +21,13 @@
 
 
     {% block footer %}
-        The API used is: <br>
-        https://opentdb.com/api_config.php <br>
+        <br><br><br><br><br><br>
+        API official website: <br>
+        https://opentdb.com/api_config.php <br><br>
         Related API card: <br>
         https://docs.google.com/document/d/1yp2nicOExDYlrEfdvqspD17Kz5c-xMSWHudfmNjJgQ4/edit
-        https://docs.google.com/document/d/1_CkEqysrBYJQ7XZBEWMpMrWhCQb0HPMPLGLknhnDtsA/edit
+
+        <br><br>
         https://docs.google.com/document/d/1oCJhl-NoNNpekMLd4C4jBXhpL9xvm6ZrVIdfoqbq-Vc/edit
 
 

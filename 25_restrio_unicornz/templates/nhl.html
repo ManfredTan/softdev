@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+    {% block body %}
+        <h1> NHL API </h1>
+        <br>
+        The NHL records website gives many stats on the NHL. This specific API gives the schedule for the current day's games.
+        <br><br>
+        Total games on {{date}} -- {{numOfGames}} games
+        <br><br><br>
+        Home Team vs Away Team, arena: <br> <br>
+        {% for game in games %}
+            {{game['teams']['home']['team']['name']}} vs {{game['teams']['away']['team']['name']}}, at {{game['venue']['name']}} <br>
+        {% endfor %}
+        <br>
+        {{correctAns}}
+
+        <img src = {{pic}}>
+
+    {% endblock %}
+
+
+    {% block footer %}
+        <br><br><br><br><br><br>
+        API official website: <br>
+        https://records.nhl.com/ <br><br>
+        Related API card: <br>
+        https://docs.google.com/document/d/1_CkEqysrBYJQ7XZBEWMpMrWhCQb0HPMPLGLknhnDtsA/edit <br><br>
+        Helpful Documentation: <br>
+        https://gitlab.com/dword4/nhlapi
+
+
+    {% endblock %}

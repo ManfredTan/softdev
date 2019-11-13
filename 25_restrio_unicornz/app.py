@@ -8,10 +8,9 @@ from urllib.request import urlopen
 import json
 app = Flask(__name__) #create instance of class Flask
 
-@app.route("/")
+@app.route("/trivia")
 def trivia():
     link = urlopen("https://opentdb.com/api.php?amount=1&difficulty=medium&type=multiple")
-    #print(data.geturl())
     response = link.read()
     data = json.loads( response )
 
@@ -25,6 +24,28 @@ def trivia():
         question = question,
         correctAns = correctAns,
         wrongAns = wrongAns))
+
+@app.route("/nhl")
+def nhl():
+    link = urlopen('https://statsapi.web.nhl.com/api/v1/schedule')
+    response = link.read()
+    data = json.loads(response)
+
+    allMatches = data['dates'][0]
+    date = allMatches["date"]
+    numOfGames = allMatches['totalGames']
+    games = allMatches["games"]
+    game = games[0]
+    teams = game['teams']
+    homeTeam = game['teams']['home']['team']['name']
+
+    print(homeTeam)
+
+    return(render_template('nhl.html',
+    date = date,
+    numOfGames = numOfGames,
+    games = games
+    ))
 
 
 if __name__ == "__main__":
