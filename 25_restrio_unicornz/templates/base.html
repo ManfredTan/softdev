@@ -9,16 +9,16 @@
     </title>
 
     {% block header %}
-    <form action='/redirecter', method="POST">
-      <input type = 'submit' name = 'sub', value = 'trivia'>
+    <form action= "/trivia">
+      <input type = 'submit' value = 'Trivia'>
     </form>
 
-    <form action='/redirecter', method="POST">
-      <input type = 'submit' name = 'sub', value = 'NHL'>
+    <form action="/nhl">
+      <input type = 'submit' value = 'NHL'>
     </form>
 
-    <form action='/redirecter', method="POST">
-      <input type = 'submit' name = 'sub', value = 'Deck of Cards'>
+    <form action="/temporary">
+      <input type = 'submit' value = 'Deck of Cards'>
     </form>
     {% endblock %}
   </head>

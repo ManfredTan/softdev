@@ -3,7 +3,7 @@
 # k#25 - REST
 # 2019-11-13
 
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template
 from urllib.request import urlopen
 import json
 app = Flask(__name__) #create instance of class Flask
@@ -52,11 +52,6 @@ def nhl():
         numOfGames = numOfGames,
         games = games
         ))
-
-@app.route("/redirecter", methods=["POST"])
-def redirect():
-    print(request.form['sub'])
-    return redirect(url_for(request.form['sub']))
 
 
 if __name__ == "__main__":
