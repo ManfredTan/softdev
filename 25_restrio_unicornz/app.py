@@ -3,10 +3,15 @@
 # k#25 - REST
 # 2019-11-13
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, url_for
 from urllib.request import urlopen
 import json
 app = Flask(__name__) #create instance of class Flask
+
+@app.route('/')
+def home():
+    return(render_template('home.html'))
+
 
 @app.route("/trivia")
 def trivia():
@@ -25,6 +30,7 @@ def trivia():
         correctAns = correctAns,
         wrongAns = wrongAns))
 
+
 @app.route("/nhl")
 def nhl():
     link = urlopen('https://statsapi.web.nhl.com/api/v1/schedule')
@@ -35,17 +41,22 @@ def nhl():
     date = allMatches["date"]
     numOfGames = allMatches['totalGames']
     games = allMatches["games"]
-    game = games[0]
-    teams = game['teams']
-    homeTeam = game['teams']['home']['team']['name']
-
-    print(homeTeam)
-
+    #game = games[0]
+    #teams = game['teams']
+    #homeTeam = game['teams']['home']['team']['name']
+    #JINJA CODE IN HTML FILE:
+    #game['teams']['home']['team']['name']}} vs {{game['teams']['away']['team']['name']}}, at {{game['venue']['name']}
+    #print(homeTeam)
     return(render_template('nhl.html',
-    date = date,
-    numOfGames = numOfGames,
-    games = games
-    ))
+        date = date,
+        numOfGames = numOfGames,
+        games = games
+        ))
+
+@app.route("/redirecter", methods=["POST"])
+def redirect():
+    print(request.form['sub'])
+    return redirect(url_for(request.form['sub']))
 
 
 if __name__ == "__main__":
