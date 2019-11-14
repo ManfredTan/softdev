@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+    {% block body %}
+        <h1> MetaWeather API </h1>
+        <br>
+        <u>{{t}}</u>
+        <br>
+        Lat & Long: {{l}}
+        <br><br>
+        Applicable date: {{a}}<br>
+        Created: {{c}}
+        <br><br>
+        The current temperature is:
+        {{curT}} C<br><br>
+        Max: {{maxT}} C<br>
+        Min: {{minT}} C<br>
+        <br>
+        Weather: {{w}} <br> <br>
+        Wind speed: {{ws}} mph<br>
+        Humidity: {{h}} RH
+    {% endblock %}
+
+
+    {% block footer %}
+        <br><br><br><br><br><br>
+        API official website: <br>
+        https://www.metaweather.com/api/ <br><br>
+        Related API card: <br>
+        https://docs.google.com/document/d/18uyXB5XPFQoGFJpoa2yQvRPhevc3HaBU4kO-OYN-ieY/edit
+
+
+    {% endblock %}
