@@ -1,3 +1,9 @@
+/*
+Team prefix -- Manfred Tan, Biraj Chowdhury, and Tammy Chen
+SoftDev1 pd9
+K27 -- Sequential Progression
+2019-12-10
+*/
 
 
 /*
@@ -24,15 +30,33 @@ var gcd = function(a,b){
   }
   if (a % b == 0) return b;
   return gcd(a-b, b);
-};
+}
 
 students = ['Manfred', 'Biraj', 'Tammy', 'Fluffy', 'Unicorn']
 
 var randomStudent = function(){
   var index = Math.floor(Math.random() * students.length);
   return students[index];
-};
+}
 
-var forFactorial = document.getElementById("factorial");
-var x = factorial(4);
-forFactorial.addEventListener('click', function());
+/*
+Team postfix -- Manfred Tan, Lauren Pehlivanian, and Tammy Chen
+SoftDev1 pd9
+K28 -- Sequential Progression II: Electruc Boogaloo
+2019-12-11
+*/
+
+var fib = document.getElementById("fib");
+fib.addEventListener("click", function(){
+  console.log(fibonacci(5))
+});
+
+var g = document.getElementById("gcd");
+g.addEventListener("click", function(){
+  console.log(gcd(12,40))
+});
+
+var rand = document.getElementById("randomStudent");
+rand.addEventListener("click", function(){
+  console.log(randomStudent())
+});
