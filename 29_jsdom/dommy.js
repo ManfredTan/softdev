@@ -1,27 +1,44 @@
 
 
 
-
 var changeHeading = function(e) {
+    console.log("THIS IS CHANGEHEADING")
+    console.log(e)
     var h = document.getElementById("h");
-    h.innerHTML = document.getElementById("thelist").innerHTML;
+    h.innerHTML = e.originalTarget.innerHTML;
 };
-
-var mouseHeading = document.getElementById("thelist")
-mouseHeading.addEventListener("mouseover", function(e){
-  console.log(e); changeHeading(e);}
-);
 
 var revertHeading = function(e) {
     var h = document.getElementById("h");
     h.innerHTML = "Hello World!"
 };
 
-var mouseHeading = document.getElementById("thelist")
-mouseHeading.addEventListener("mouseout", function(e){
-  console.log(e); revertHeading(e);}
-);
 
+/********************************/
+
+var removeItem = function(e) {
+    console.log("REMOVE")
+
+    e.remove;
+};
+
+var lis = document.getElementsByTagName("li");
+
+for (var i=0; i<lis.length; i++) {
+    lis[i].addEventListener("mouseover", changeHeading);
+
+
+    /*
+    function(e){
+        console.log("this is mousover");
+        console.log(e);
+        changeHeading});
+        */
+
+    lis[i].addEventListener("mouseout", function(e){console.log(e); revertHeading(e);});
+
+    lis[i].addEventListener('click', removeItem )
+};
 
 /*
 Team prefix -- Manfred Tan, Biraj Chowdhury, and Tammy Chen
