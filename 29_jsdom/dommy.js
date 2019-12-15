@@ -2,104 +2,86 @@
 
 
 var changeHeading = function(e) {
-    console.log("THIS IS CHANGEHEADING")
-    console.log(e)
+    // console.log("THIS IS CHANGEHEADING")
+    // console.log(e)
     var h = document.getElementById("h");
-    h.innerHTML = e.originalTarget.innerHTML;
+    if (e.type == "mouseout"){
+        h.innerHTML = "Hello World!"
+    }
+    else {
+        h.innerHTML = e.target.innerHTML;
+    }
 };
-
-var revertHeading = function(e) {
-    var h = document.getElementById("h");
-    h.innerHTML = "Hello World!"
-};
-
-
-/********************************/
 
 var removeItem = function(e) {
-    console.log("REMOVE")
-
-    e.remove;
+    console.log("REMOVE");
+    console.log(e);
+    e.target.remove();
 };
 
 var lis = document.getElementsByTagName("li");
 
 for (var i=0; i<lis.length; i++) {
+    console.log(lis[i])
     lis[i].addEventListener("mouseover", changeHeading);
-
-
-    /*
-    function(e){
-        console.log("this is mousover");
-        console.log(e);
-        changeHeading});
-        */
-
-    lis[i].addEventListener("mouseout", function(e){console.log(e); revertHeading(e);});
-
+    lis[i].addEventListener("mouseout", changeHeading);
     lis[i].addEventListener('click', removeItem )
 };
 
-/*
-Team prefix -- Manfred Tan, Biraj Chowdhury, and Tammy Chen
-SoftDev1 pd9
-K27 -- Sequential Progression
-2019-12-10
-*/
-
-
-/*
-var foo = function(n){
-  return n;
-};
-*/
-
-var factorial = function(n){
-  if (n == 1) return 1;
-  return (n * factorial(n-1));
+var addItem = function(e) {
+    var list = document.getElementById("thelist");
+    //console.log(list.children.length);
+    var item = document.createElement("li");
+    item.innerHTML = ("item " + (list.children.length).toString());
+    list.appendChild(item);
+    item.addEventListener("mouseover", changeHeading);
+    item.addEventListener("mouseout", changeHeading);
+    item.addEventListener('click', removeItem )
 };
 
+var button  = document.getElementById("b");
+button.addEventListener('click', addItem);
 
-var fibonacci = function(n){
-  if (n < 2) return n;
-  if (n == 2) return 1;
-  return (fibonacci(n-1) + fibonacci(n-2));
+var fib = function(n) {
+    if (n < 2) {
+        return 1;
+    }
+    else {
+        return fib(n-1) + fib(n-2);
+    }
 };
 
-var gcd = function(a,b){
-  if (a < b){
-    return gcd(b, a);
-  }
-  if (a % b == 0) return b;
-  return gcd(a-b, b);
-}
+var addFib = function(e) {
+    console.log(e);
+    var list = document.getElementById("fiblist");
+    var len = list.children.length;
+    // console.log(addFib2(0));
+    // console.log(list.children.length);
+    var item = document.createElement("li");
+    item.innerHTML = (addFib2(list.children.length).toString());
+    list.appendChild(item);
 
-students = ['Manfred', 'Biraj', 'Tammy', 'Fluffy', 'Unicorn']
+};
 
-var randomStudent = function(){
-  var index = Math.floor(Math.random() * students.length);
-  return students[index];
-}
+var dictOfFib = {fib0:1, fib1:1 };
 
-/*
-Team postfix -- Manfred Tan, Lauren Pehlivanian, and Tammy Chen
-SoftDev1 pd9
-K28 -- Sequential Progression II: Electruc Boogaloo
-2019-12-11
+// returns the fib number in nth position
+var addFib2 = function(n) {
+    var fibNum = "fib" + n.toString();
+    console.log("FIB NUM: " + fibNum);
+    // console.log(fibNum in dictOfFib);
+    if (fibNum in dictOfFib) {
+        console.log("Used existing: ");
+        console.log(fibNum + ": " + dictOfFib[fibNum].toString());
+        return dictOfFib[fibNum];
+    }
+    else {
+        console.log("Made new: ");
+        dictOfFib[fibNum] = fib(n);
+        console.log(dictOfFib);
+        return fib(n);
+    }
+};
 
-
-var fib = document.getElementById("fib");
-fib.addEventListener("click", function(){
-  console.log(fibonacci(5))
-});
-
-var g = document.getElementById("gcd");
-g.addEventListener("click", function(){
-  console.log(gcd(12,40))
-});
-
-var rand = document.getElementById("randomStudent");
-rand.addEventListener("click", function(){
-  console.log(randomStudent())
-});
-*/
+var fb = document.getElementById("fb");
+fb.addEventListener("click", addFib);
