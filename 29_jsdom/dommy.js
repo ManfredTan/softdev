@@ -2,7 +2,7 @@
 
 
 var changeHeading = function(e) {
-    // console.log("THIS IS CHANGEHEADING")
+    console.log("THIS IS CHANGEHEADING")
     // console.log(e)
     var h = document.getElementById("h");
     if (e.type == "mouseout"){
@@ -55,33 +55,42 @@ var addFib = function(e) {
     console.log(e);
     var list = document.getElementById("fiblist");
     var len = list.children.length;
-    // console.log(addFib2(0));
-    // console.log(list.children.length);
     var item = document.createElement("li");
-    item.innerHTML = (addFib2(list.children.length).toString());
+    item.innerHTML = (fib(len).toString());
     list.appendChild(item);
-
+    //item.addEventListener("mouseover", changeHeading);
+    //item.addEventListener("mouseout", changeHeading);
+    item.addEventListener('click', removeItem )
 };
 
 var dictOfFib = {fib0:1, fib1:1 };
 
 // returns the fib number in nth position
-var addFib2 = function(n) {
-    var fibNum = "fib" + n.toString();
+var addFib2 = function(e) {
+    console.log(e);
+    var list = document.getElementById("fiblist");
+    var len = list.children.length;
+    var item = document.createElement("li");
+
+    var fibNum = "fib" + len.toString();
     console.log("FIB NUM: " + fibNum);
     // console.log(fibNum in dictOfFib);
     if (fibNum in dictOfFib) {
         console.log("Used existing: ");
         console.log(fibNum + ": " + dictOfFib[fibNum].toString());
-        return dictOfFib[fibNum];
+        item.innerHTML = dictOfFib[fibNum];
     }
     else {
         console.log("Made new: ");
-        dictOfFib[fibNum] = fib(n);
+        dictOfFib[fibNum] = fib(len);
         console.log(dictOfFib);
-        return fib(n);
+        item.innerHTML =  fib(len);
     }
+    list.appendChild(item);
+    //item.addEventListener("mouseover", changeHeading);
+    //item.addEventListener("mouseout", changeHeading);
+    item.addEventListener('click', removeItem )
 };
 
 var fb = document.getElementById("fb");
-fb.addEventListener("click", addFib);
+fb.addEventListener("click", addFib2);
