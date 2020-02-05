@@ -26,11 +26,12 @@ var button  = document.getElementById("clear");
 button.addEventListener('click', test);
 
 //Draw small box
-c.addEventListener('mouseover', console.log("test!!") )
+c.addEventListener('click', console.log("test!!") )
 
 var box = function(e) {
     console.log("WORKS!!")
+    var c = document.getElementById("slate")
     c.addEventListener("mouseover", console.log("WORKS!!"));
-    c.addEventListener("mouseout", console.log("WORKS!!"));
+    c.addEventListener("mouseout", console.log("out!!"));
 }
 var draw = document.getE
