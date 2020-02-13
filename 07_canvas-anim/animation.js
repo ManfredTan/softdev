@@ -1,20 +1,21 @@
 /*
-Manfred Tan, Joseph Lee
+Manfred Tan, David Xiedeng
 SoftDev1 pd1
-K#06 -- Dot Dot Dot
-2020-02-11
+K #07: They lock us in the tower whenever we get caught
+2020-02-12
 */
 
 var c = document.getElementById("playground")
 var ctx = c.getContext("2d")
 ctx.fillStyle = "#8a28e6"
 
-
+var running = false;
 var radius = 0;
 var expand = true;
+var id = 0;
 
 var grow = function(e) {
-
+    id = window.requestAnimationFrame(grow);
     if (expand) {
         radius += 1;
         if (radius==300) expand=false;
@@ -31,15 +32,17 @@ var grow = function(e) {
     ctx.closePath();
 }
 
-var id = 0;
-
 var animate = function(e) {
-    grow()
-    id = window.requestAnimationFrame(animate)
+    if (!running) {
+        running = true;
+        console.log('workd')
+        grow();
+    };
 };
 
-var stop = function(e) {
-    window.cancelAnimationFrame(animate);
+var pause = function(e) {
+    window.cancelAnimationFrame(id);
+    running = false
 };
 
 
@@ -49,4 +52,4 @@ start.addEventListener('click', animate);
 
 
 var stop = document.getElementById("stop");
-stop.addEventListener('click', stop)
+stop.addEventListener('click', pause);
