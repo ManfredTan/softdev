@@ -45,10 +45,11 @@ var move = function(e) {
     //ctx.arc(valueX,valueY,5, 0, Math.PI * 2, true);
     ctx.fill();
     ctx.closePath();
-    if (valueX >= 550 || valueX <= 50) changeX *= -1;
-    if (valueY >= 550 || valueY <= 50) changeY *= -1;
+    if (valueX >= 575 || valueX <= 25) changeX *= -1;
+    if (valueY >= 575 || valueY <= 25) changeY *= -1;
     valueX += changeX;
     valueY += changeY;
+    console.log(valueX, changeX, valueY, changeY)
 }
 
 var animate = function(e) {
@@ -66,8 +67,8 @@ var bounce = function(e) {
 
     changeX = 1;
     changeY = 1;
-    valueX = Math.floor(Math.random() * 550);
-    valueY = Math.floor(Math.random() * 550);
+    valueX = Math.floor(Math.random() * 550) + 25;
+    valueY = Math.floor(Math.random() * 550) + 25;
     move();
 }
 
