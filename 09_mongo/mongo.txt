@@ -1,0 +1,4 @@
+db.<collection>.insert(<doc>) makes/inserts into collection
+""."".drop() removes collection
+#lt less than
+#lte lessthan equal to
