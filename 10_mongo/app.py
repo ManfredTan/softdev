@@ -6,8 +6,21 @@
 from flask import Flask, render_template, Response
 from urllib.request import urlopen
 import json
+import math
+import pymongo
+from pymongo import MongoClient
+from pprint import pprint # pprint library is used to make the output look more pretty
+
+client = MongoClient("mongodb://admin:password@167.71.190.132/locations") # defaults to port 27017
+db = client['locations']
+cursor =  db.continents.find({})
 
 app = Flask(__name__) #create instance of class Flask
+
+#for document in cursor:
+#    print(document['lat'])
+#print(db.continents.count())
+
 
 @app.route("/")
 def nothing():
@@ -53,22 +66,25 @@ def createMapLink(lat, long):
 #createMapLink(30.333472,-81.470448)
 
 
-def home():
-    link = urlopen("https://api.nasa.gov/planetary/apod?api_key=AiLtoPDhFne6zBMXV5RI2yNqTHK3PKbm1HzOui0W")
-    #print(data.geturl())
-    response = link.read()
-    data = json.loads( response )
-    pic = data['url']
-    date = data['date']
-    explanation = data['explanation']
-    print(response)
-    return(render_template("index.html",
-        explanation = explanation,
-        date = date,
-        pic = pic))
+def distanceBetween(x1,y1,x2,y2):
+     d = math.sqrt((x2 - x1)**2 + (y2 - y1)**2)
+     return d
+#print(distanceBetween(0, 0, 3, 4))
 
+def closestContinent(latMeteor, longMeteor):
+    dist = 99999.9
+    closestAbv = ""
+    for document in cursor:
+        lat = document['lat']
+        long = document['long']
+        next = distanceBetween(lat, long, latMeteor, longMeteor)
+        if (next < dist):
+            dist = next
+            closestAbv = document['abv']
+    return closestAbv
 
+print(closestContinent(8.0,30.0))
 
-if __name__ == "__main__":
-    app.debug = False
-    app.run()
+#if __name__ == "__main__":
+#    app.debug = False
+#    app.run()
