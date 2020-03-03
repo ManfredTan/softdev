@@ -28,6 +28,7 @@ collection.insert_many(cleaned_data)
 
 
 # making locations database
+# added example locations. We can use mapquest to implement more, but these will do for now.
 database['commonLocations'].insert_many([
     {"name":"New York City","lat":40.7128,"long":74.0060},
     {"name":"Chicago","lat":41.8781,"long":87.6298},
