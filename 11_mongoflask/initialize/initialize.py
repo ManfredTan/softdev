@@ -7,6 +7,7 @@ client = MongoClient('localhost', 27017)  # default mongo port is 27017
 database = client["11_mongoflask"]
 collection = database['meteoriteLandings']
 
+client.drop_database("11_mongoflask")
 
 ### ADDING METEORITE DATA
 with open("data.json", encoding='utf-8') as data_file:
@@ -46,8 +47,7 @@ file = open("role.json", "r")
 lines = file.read()
 dictionary = json.loads(lines)
 for object in dictionary['objects']:
-    db.government.insert_one(object)
-
+    database.government.insert_one(object)
 
 
 client.close()
