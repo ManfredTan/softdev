@@ -1,0 +1,28 @@
+<html>
+	<head>
+		<title>
+			The House of Representatives
+		</title>
+	</head>
+	<body>
+		<h1>Welcome to the House of Representatives</h1>
+		<form action="/processHouseQuery">
+			<input type="radio" value="Male" name="gender" id="male">Male</input>
+			<input type="radio" value="Female" name="gender" id="female">Female</input>
+			<br>
+			<br>
+			<input type="radio" name="party" value="Republican" id="R">Republican</input>
+			<input type="radio" name="party" value="Democrat" id="D">Democrat</input>
+			<input type="radio" name="party" value="Independant" id="I">Independant</input>
+			<br>
+			<br>
+			<input type="submit" name="submit" value="Submit Query">
+		</form>
+
+		{% for official in output %}
+		<h3>{{official['description']}}</h3>
+		<h5>{{official['person']['firstname']}} {{official['person']['lastname']}}</h5>
+		{% endfor %}
+	</body>
+
+</html>

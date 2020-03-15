@@ -1,0 +1,23 @@
+<html>
+	<head>
+		<title>
+			Meteorites
+		</title>
+	</head>
+	<body>
+		<h1>Meteorites</h1>
+		<form action="/processFoundLandings">
+            <input type="radio" value="foundLandings" name="foundLandings" id="foundLandings">Found Landings</input>
+			<br>
+            <br>
+			<input type="submit" name="submit" value="Submit Query">
+		</form>
+
+		{% for meteorite in output %}
+		<h3>{{meteorite['name']}}</h3>
+		<h5>{{meteorite['geolocation']['coordinates']}} </h5>
+        <br>
+		{% endfor %}
+	</body>
+
+</html>

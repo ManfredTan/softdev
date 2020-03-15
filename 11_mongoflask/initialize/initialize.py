@@ -43,7 +43,7 @@ database['commonLocations'].insert_many([
 
 # ADDING HOUSE OF REP DATA
 
-file = open("role.json", "r")
+file = open("role.json", "r", encoding='utf-8')
 lines = file.read()
 dictionary = json.loads(lines)
 for object in dictionary['objects']:

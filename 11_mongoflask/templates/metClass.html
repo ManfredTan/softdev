@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<title>
+			Meteorites
+		</title>
+	</head>
+	<body>
+		<h1>Meteorites</h1>
+		<form action="/processClass">
+            <p>Find meteorites with class {{metClass}}:</p>
+            <select name="metClass">
+            <option value ="Acapulcoite">Acapulcoite</option>
+            <option value ="Aubrite">Aubrite</option>
+            <option value ="CM2">CM2</option>
+            <option value ="CO3.6">CO3.6</option>
+            <option value ="Diogenite">Diogenite</option>
+            <option value ="EH3">EH3</option>
+            <option value ="Eucrite">Eucrite</option>
+            <option value ="H3.8">H3.8</option>
+            <option value ="Howardite">Howardite</option>
+            <option value ="Iron">Iron</option>
+            <option value ="L3">L3</option>
+            <option value ="Unknown">Unknown</option>
+
+            </select>
+            <p><input type="submit" value="Submit"></p>
+            </form>
+		</form>
+
+		{% for meteorite in output %}
+		<h3>{{meteorite['name']}}</h3>
+		<h5>{{meteorite['geolocation']['coordinates']}} </h5>
+		{% endfor %}
+	</body>
+
+</html>
