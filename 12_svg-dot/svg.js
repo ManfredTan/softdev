@@ -1,4 +1,5 @@
 var pic = document.getElementById("vimage");
+var button = document.getElementById("clear");
 
 // variables for coords of last circle
 var first = true;
@@ -51,5 +52,12 @@ var draw = function(e) {
 
 };
 
+var clear = function(e) {
+  console.log("clear pressed");
+  pic.innerHTML = "";
+  first = true;
+}
+
 
 pic.addEventListener('click', draw);
+button.addEventListener('click', clear);
