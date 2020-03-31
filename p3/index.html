@@ -1,0 +1,59 @@
+<html>
+<head>
+<title> Google PageRank Algorithm</title>
+</head>
+<body>
+  <center>
+    <h1> Google Page Rank Algorithm </h1>
+  </center>
+  <br>
+  <h2> What is it?</h1>
+    <ul>- PageRank is one of many factors Google uses in ranking the pages that appear in a search</ul>
+    <ul>- Assigns as number (1-10) to each page based on its unique algorithm</ul>
+    <ul>- Utilizes a algorithm that is based on a damping factor and the sum of the incoming PageRank scores</ul>
+  <h2> What does it value?</h1>
+      <ul>- Older websites</ul>
+      <ul>- The number of links that direct to the given webpage</ul>
+      <ul>- The frequency of how often the website is searched</ul>
+  <h2> How Does it Work? </h2>
+  <p>
+  Imagine four independent websites. In order to determine which website should be the first result after a google search, we need to rank them.
+  So, we give each website a 	&quotpoint&quot and allow them to vote for which website is the highest.</p>
+  <center><img src= "image1.JPG"></center>
+  <br>
+  <p>
+  These were the results:
+  <br>
+  A chose B
+  <br>
+  B chose C and D
+  <br>
+  C chose A and D
+  <br>
+  D chose A and B
+  <br>
+  </p>
+  <p> Just by looking at the number of points that each website received, B should be first and C should be last. But we also need to figure out if A or D should be higher.
+  So the question we now ask is: On which sites do we spend the most time on? What percent of our time would be spent on each site? Thus, the &quotpoints&quot become links that lead to the other websites.
+  </p>
+  <p>To answer this question, we start at a random site. We assume that each site has an equal probability of being chosen, so we give them a 0.25 probability. We multiply our matrix of values with the 0.25 matrix to get the results.
+  </p>
+  <center><img src = "image2.JPG"></center>
+  <p>These results make sense. Let&apos;s say we start on website B. B chose both C and D, so they both have a (0.25) x (0.5) probability of getting there from website B.
+    Only website B links to C, so the final probability for C is 0.125. D, on the other hand, is also linked from C. If we start on C, there is a 0.125 chance of going to D.
+    Thus we add 0.125 from B to D and 0.125 from C to D and the final probability for website D is 0.25. If we repeat this for all websites, the results should be the same as in the matrix.
+  </p>
+  <p>But this is only for one round of clicks. We want to know what website would be the highest after many clicks. If we multiply the original matrix with the new results over and over, we get:
+</p>
+<center>
+  A(A*R0) . . .lim n inf A^n R0
+</center>
+<center><img src = "image3.JPG"></center>
+<p>We can see that website B is the highest and website C is the lowest. We also see that website D is the second highest.
+  This makes sense because while A and D both have 2 links going to the pages, D is linked by B, which would be considered a &quotreputable source&quot. Thus D gets more points and ranks higher than A.
+</p>
+<p>
+  Obviously this is a very simple example, and doesn&apos;t account for other factors like new web pages and spam pages, but the general idea is captured. The real algorithm is only known by the google engineers themselves.
+</p>
+</body>
+</html>
