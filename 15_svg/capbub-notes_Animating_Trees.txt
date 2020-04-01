@@ -1,0 +1,27 @@
+Yifan Wang and Manfred Tan (Team Animating Trees)
+SoftDev pd1
+K15 -- Capture Bubble Toil Trouble
+2020-04-01
+
+1:
+  - getElementsByTagName creates a list of all elements with the given tag
+  - When box is clicked, it displays the innerHTML in an alert
+
+2:
+  - Very similar to how V1 works except now three alerts are displayed when you
+    click inside the box
+  - Alerts displayed in the order that addEventListener was written: td, tr, table
+  - Q: Does it by default display the alerts in the order of how it was written or
+    or innermost to outermost
+    A: innermost to outermost
+
+3:
+  - When the argument true is added to an addEventListener, it first handles the event
+    for that element
+  - e.stopPropagation() interrupts the sequence of alerts and stops the remaining
+    from being displayed
+
+4:
+  - When the argument true is added to multiple addEventListener's, the order of the
+    events is the from outermost to innermost
+  - Similar to 3, when e.stopPropagation() is uncommented, only one alert get displayed
